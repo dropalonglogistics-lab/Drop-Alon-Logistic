@@ -41,6 +41,7 @@ interface RouteSuggestion {
   suggested_fare: number;
   vehicle_type: string;
   status: string;
+  instructions: string | null;
   created_at: string;
   profiles: { full_name: string | null; email: string | null } | null;
 }
@@ -257,15 +258,15 @@ export default function AdminDashboardClient({
                       <div key={suggestion.id} className='border border-gray-200 rounded-xl p-4'>
                         <div className='flex flex-col md:flex-row md:items-center md:justify-between gap-4'>
                           <div className='flex-1'>
-                            <h3 className='font-bold text-dal-black'>{suggestion.route_name}</h3>
+                            <h3 className='font-bold text-dal-black'>{suggestion.origin_text} to {suggestion.destination_text}</h3>
                             <p className='text-sm text-dal-slate mt-1'>
-                              {suggestion.start_location} → {suggestion.end_location}
+                              Route Suggestion via {suggestion.vehicle_type}
                             </p>
                             <p className='text-xs text-gray-500 mt-2'>
                               Submitted by: {suggestion.profiles?.full_name || suggestion.profiles?.email || 'Unknown'}
                             </p>
-                            {suggestion.description && (
-                              <p className='text-sm text-gray-600 mt-2'>{suggestion.description}</p>
+                            {suggestion.instructions && (
+                              <p className='text-sm text-gray-600 mt-2'>{suggestion.instructions}</p>
                             )}
                           </div>
                           <div className='flex gap-2'>
@@ -406,5 +407,6 @@ export default function AdminDashboardClient({
     </div>
   );
 }
+
 
 
