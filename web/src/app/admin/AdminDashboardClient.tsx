@@ -31,6 +31,8 @@ interface RouteReport {
   reported_fare: number;
   status: string;
   created_at: string;
+  description: string | null;
+  report_type: string | null;
   routes: { name: string } | null;
 }
 
