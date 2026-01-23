@@ -1,8 +1,8 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+﻿import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { login } from "@/app/auth/actions";
+import LoginButton from "./LoginButton";
 
 export default function LoginPage() {
   return (
@@ -27,9 +27,7 @@ export default function LoginPage() {
               <Input name="password" type="password" placeholder="••••••••" required />
             </div>
             
-            <Button type="submit" className="w-full bg-dal-gold hover:bg-dal-gold-hover text-dal-black font-semibold">
-              Sign In
-            </Button>
+            <LoginButton />
           </form>
 
           <div className="text-center text-sm text-gray-500 mt-4">
@@ -49,3 +47,4 @@ export default function LoginPage() {
     </div>
   );
 }
+
