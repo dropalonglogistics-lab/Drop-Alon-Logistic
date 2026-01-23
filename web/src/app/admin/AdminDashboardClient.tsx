@@ -53,7 +53,7 @@ interface UserProfile {
   created_at: string;
 }
 
-interface AdminDashboardClientProps { {
+interface AdminDashboardClientProps {
   stats: {
     totalRoutes: number;
     verifiedRoutes: number;
@@ -406,4 +406,5 @@ export default function AdminDashboardClient({
     </div>
   );
 }
+
 
