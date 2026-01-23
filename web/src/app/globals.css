@@ -1,0 +1,93 @@
+﻿@import "tailwindcss";
+
+:root {
+  /* DAL Brand Colors - Enhanced for Premium Feel */
+  --dal-gold: #FFC107;
+  --dal-gold-dark: #B28704;
+  --dal-gold-light: #FFD54F;
+  --dal-black: #020617; /* Deepest blue/black */
+  --dal-slate: #1E293B;
+  --dal-grey: #F8FAFC;
+  
+  --background: #ffffff;
+  --foreground: #020617;
+  
+  --primary: var(--dal-gold);
+  --primary-foreground: #020617;
+  
+  --secondary: var(--dal-black);
+  --secondary-foreground: #ffffff;
+  
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+  
+  --accent: #F1F5F9;
+  --accent-foreground: #020617;
+  
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: var(--dal-gold);
+  
+  --radius: 1rem; /* Slightly larger for modern feel */
+}
+
+@theme inline {
+  --color-dal-gold: var(--dal-gold);
+  --color-dal-gold-dark: var(--dal-gold-dark);
+  --color-dal-gold-light: var(--dal-gold-light);
+  --color-dal-black: var(--dal-black);
+  --color-dal-grey: var(--dal-grey);
+  
+  --shadow-premium: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-premium-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hover-slide {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-slide:hover {
+  transform: translateY(-4px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #020617; /* Darker slate background */
+    --foreground: #F8FAFC;
+    
+    --primary: var(--dal-gold);
+    --primary-foreground: #020617;
+    
+    --secondary: #1E293B;
+    --secondary-foreground: #F8FAFC;
+    
+    --muted: #0F172A;
+    --muted-foreground: #94A3B8;
+    
+    --border: #1E293B;
+    --input: #1E293B;
+    --ring: var(--dal-gold);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
