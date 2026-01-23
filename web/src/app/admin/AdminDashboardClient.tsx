@@ -26,7 +26,34 @@ import {
 } from '@/components/ui/table';
 import { updateUserRole } from '@/app/actions/admin-actions';
 
-interface AdminDashboardClientProps {
+interface RouteReport {
+  id: string;
+  reported_fare: number;
+  status: string;
+  created_at: string;
+  routes: { name: string } | null;
+}
+
+interface RouteSuggestion {
+  id: string;
+  origin_text: string;
+  destination_text: string;
+  suggested_fare: number;
+  vehicle_type: string;
+  status: string;
+  created_at: string;
+  profiles: { full_name: string | null; email: string | null } | null;
+}
+
+interface UserProfile {
+  id: string;
+  full_name: string | null;
+  email: string | null;
+  role: string;
+  created_at: string;
+}
+
+interface AdminDashboardClientProps { {
   stats: {
     totalRoutes: number;
     verifiedRoutes: number;
@@ -379,3 +406,4 @@ export default function AdminDashboardClient({
     </div>
   );
 }
+
