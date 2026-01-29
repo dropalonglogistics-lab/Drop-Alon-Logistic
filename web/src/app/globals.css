@@ -1,10 +1,11 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 :root {
   /* DAL Brand Colors - Enhanced for Premium Feel */
   --dal-gold: #FFC107;
   --dal-gold-dark: #B28704;
   --dal-gold-light: #FFD54F;
+  --dal-gold-hover: #FFB300;
   --dal-black: #020617; /* Deepest blue/black */
   --dal-slate: #1E293B;
   --dal-grey: #F8FAFC;
@@ -29,19 +30,26 @@
   --ring: var(--dal-gold);
   
   --radius: 1rem; /* Slightly larger for modern feel */
+  
+  /* Card backgrounds for light mode */
+  --card: #ffffff;
+  --card-foreground: #020617;
 }
 
 @theme inline {
   --color-dal-gold: var(--dal-gold);
   --color-dal-gold-dark: var(--dal-gold-dark);
   --color-dal-gold-light: var(--dal-gold-light);
+  --color-dal-gold-hover: var(--dal-gold-hover);
   --color-dal-black: var(--dal-black);
+  --color-dal-slate: var(--dal-slate);
   --color-dal-grey: var(--dal-grey);
   
   --shadow-premium: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
   --shadow-premium-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
 }
 
+/* Glassmorphism utilities */
 .glass {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
@@ -56,6 +64,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Hover animations */
 .hover-slide {
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -64,6 +73,7 @@
   transform: translateY(-4px);
 }
 
+/* Dark mode styles */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #020617; /* Darker slate background */
@@ -75,19 +85,63 @@
     --secondary: #1E293B;
     --secondary-foreground: #F8FAFC;
     
-    --muted: #0F172A;
+    --muted: #1E293B;
     --muted-foreground: #94A3B8;
     
-    --border: #1E293B;
+    --accent: #1E293B;
+    --accent-foreground: #F8FAFC;
+    
+    --border: #334155;
     --input: #1E293B;
     --ring: var(--dal-gold);
+    
+    --card: #0F172A;
+    --card-foreground: #F8FAFC;
+    
+    /* Update grey for dark mode */
+    --dal-grey: #0F172A;
   }
 }
 
+/* Base body styles */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Responsive container utilities */
+@media (min-width: 768px) {
+  .container-responsive {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* Enhanced focus states for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--dal-gold);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Better text rendering */
+* {
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
