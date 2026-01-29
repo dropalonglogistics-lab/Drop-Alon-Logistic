@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -8,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { signup } from "@/app/auth/actions";
 import { useState } from "react";
 
-export default function SignupPage() {
+function SignupContent() {
     const searchParams = useSearchParams();
     const error = searchParams.get('error');
     const [isLoading, setIsLoading] = useState(false);
@@ -90,3 +91,12 @@ export default function SignupPage() {
         </div>
     );
 }
+
+export default function SignupPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-dal-grey dark:bg-dal-black text-gray-400">Loading...</div>}>
+            <SignupContent />
+        </Suspense>
+    );
+}
+
